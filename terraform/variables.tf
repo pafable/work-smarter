@@ -1,6 +1,6 @@
 variable "environment" {
   type   = string
-  defaul = "dev"
+  default = "dev"
 }
 
 variable "instance_type" {
