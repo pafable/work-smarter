@@ -1,0 +1,14 @@
+name: Code Security Test
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tfsec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: tfsec action
+        uses: aquasecurity/tfsec-action@v1.0.2
+        working-directory: terraform
