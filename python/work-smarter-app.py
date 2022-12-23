@@ -1,4 +1,26 @@
 import os
+import argparse
+
+API_KEY = 'eJ!uW7_CwbzJT2o&oX#JpBe%e'
+
+parser = argparse.ArgumentParser(
+    prog="Work-Smarter",
+    description="Work Smarter app"
+)
+
+parser.add_argument(
+    "-n",
+    "--name",
+    required=True
+)
+
+parser.add_argument(
+    "-r",
+    "--role",
+    required=True
+)
+
+args = parser.parse_args()
 
 
 class Files:
@@ -11,10 +33,28 @@ class Files:
         raise ValueError("No directory was entered")
 
 
+def greeting(name: str) -> str:
+    return f"hello {name.capitalize()} and welcome to Work Smarter!"
+
+
+def read_file(file: str):
+    x = open(file)
+    return x.read()
+
+
 def main():
-    f = Files(os.getcwd())
-    for file in f.get_files():
-        print(file)
+    print(greeting(args.name))
+
+    role = args.role
+    if role.lower() == "mod":
+        f = Files(os.getcwd())
+        print("\nThese are the files you manage:")
+        for index, file in enumerate(f.get_files()):
+            print(f"{index}: {file}")
+
+            if file == os.path.basename(__file__):
+                print("\nReading file...")
+                print(read_file(file))
 
 
 if __name__ == "__main__":
