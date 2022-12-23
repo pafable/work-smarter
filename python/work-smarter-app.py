@@ -32,14 +32,14 @@ class Files:
             return os.listdir(self.file_dir)
         raise ValueError("No directory was entered")
 
+    @staticmethod
+    def read_file(file: str):
+        x = open(file)
+        return x.read()
+
 
 def greeting(name: str) -> str:
     return f"hello {name.capitalize()} and welcome to Work Smarter!"
-
-
-def read_file(file: str):
-    x = open(file)
-    return x.read()
 
 
 def main():
@@ -54,7 +54,7 @@ def main():
 
             if file == os.path.basename(__file__):
                 print("\nReading file...")
-                print(read_file(file))
+                print(Files.read_file(file))
 
 
 if __name__ == "__main__":

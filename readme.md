@@ -5,6 +5,7 @@ Code in this repo purposely has vulnerabilties so I can demonstrate how to detec
 If you want to follow along these are the tools I will be using:
 
 - PyCharm: https://www.jetbrains.com/pycharm/
+
   (feel free to use whatever text editor or IDE you're comfortable with, vscode is a great alternative)
 
 - tfsec : https://github.com/aquasecurity/tfsec
